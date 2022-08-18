@@ -307,8 +307,8 @@ game_records_w_dup <-
 
 game_records <- 
   game_records_w_dup %>%
-  group_by(season, date, home_team, game_num, is_neutral, away_team, home_win) %>% 
-  # Inconsistiencies in data entry - take max to assume most
+  group_by(season, date, home_team, is_neutral, away_team, home_win) %>% 
+  # Inconsistencies in data entry - take max to assume most
   summarize_all(max) %>% 
   ungroup()
 
